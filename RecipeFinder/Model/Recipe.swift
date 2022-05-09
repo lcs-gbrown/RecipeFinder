@@ -6,3 +6,8 @@
 //
 
 import Foundation
+
+struct Recipe: Identifiable {
+    let id = UUID
+    let strInstructions: String
+}

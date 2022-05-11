@@ -26,17 +26,19 @@ struct RecipeDetailView: View {
                 
                 RemoteImageView(fromURL: URL(string: recipe.strMealThumb)!)
                 
+                Link("View recipe", destination: URL(string: recipe.strSource)!)
+                                    .padding(.top, 5)
+                
                 Text(recipe.strInstructions)
                     .font(.body)
                 
-                Link("View recipe", destination: URL(string: recipe.strSource)!)
-                    .padding(.top, 5)
+                
                
                 Link("View video", destination: URL(string: recipe.strYouTube)!)
                     .padding(.top, 5)
             }
             
-            
+            .padding()
         }
       
     }

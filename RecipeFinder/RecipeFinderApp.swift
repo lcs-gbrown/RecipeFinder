@@ -11,7 +11,20 @@ import SwiftUI
 struct RecipeFinderApp: App {
     var body: some Scene {
         WindowGroup {
-            RecipeDetailView(recipe: testRecipe)
+            TabView {
+                
+                RecipeDetailView(recipe: testRecipe)
+                    .tabItem {
+                        Text("Recipe Details")
+                        Image(systemName: "captions.bubble.fill")
+                    }
+                
+                SearchView()
+                    .tabItem {
+                        Text("Search")
+                        Image(systemName: "captions.bubble.fill")
+                    }
+            }
         }
     }
 }

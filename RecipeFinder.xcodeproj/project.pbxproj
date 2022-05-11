@@ -15,6 +15,7 @@
 		0ADCFBF028259ADC00E1FA87 /* RecipeDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ADCFBEF28259ADC00E1FA87 /* RecipeDetailView.swift */; };
 		0ADD888C282994A500DEFEAE /* VideoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ADD888B282994A500DEFEAE /* VideoView.swift */; };
 		0ADD888E28299F7500DEFEAE /* RemoteImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ADD888D28299F7500DEFEAE /* RemoteImageView.swift */; };
+		0ADD88902829EB9900DEFEAE /* SearchResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ADD888F2829EB9900DEFEAE /* SearchResult.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -27,6 +28,7 @@
 		0ADCFBEF28259ADC00E1FA87 /* RecipeDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeDetailView.swift; sourceTree = "<group>"; };
 		0ADD888B282994A500DEFEAE /* VideoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoView.swift; sourceTree = "<group>"; };
 		0ADD888D28299F7500DEFEAE /* RemoteImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteImageView.swift; sourceTree = "<group>"; };
+		0ADD888F2829EB9900DEFEAE /* SearchResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResult.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -81,6 +83,7 @@
 			children = (
 				0ADCFBED2825833E00E1FA87 /* Recipe.swift */,
 				0ADD888B282994A500DEFEAE /* VideoView.swift */,
+				0ADD888F2829EB9900DEFEAE /* SearchResult.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -174,6 +177,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				0ADCFBEE2825833E00E1FA87 /* Recipe.swift in Sources */,
+				0ADD88902829EB9900DEFEAE /* SearchResult.swift in Sources */,
 				0ADD888C282994A500DEFEAE /* VideoView.swift in Sources */,
 				0ADCFBEC28257D8400E1FA87 /* SearchView.swift in Sources */,
 				0ADCFBDB28257BDA00E1FA87 /* RecipeFinderApp.swift in Sources */,

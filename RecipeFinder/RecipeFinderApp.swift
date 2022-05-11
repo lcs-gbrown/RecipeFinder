@@ -13,17 +13,19 @@ struct RecipeFinderApp: App {
         WindowGroup {
             TabView {
                 
+                SearchView()
+                    .tabItem {
+                        Text("Search")
+                        Image(systemName: "captions.bubble.fill")
+                    }
+                
                 RecipeDetailView(recipe: testRecipe)
                     .tabItem {
                         Text("Recipe Details")
                         Image(systemName: "captions.bubble.fill")
                     }
                 
-                SearchView()
-                    .tabItem {
-                        Text("Search")
-                        Image(systemName: "captions.bubble.fill")
-                    }
+               
             }
         }
     }

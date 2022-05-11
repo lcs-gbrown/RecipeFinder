@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0A24D7AE282BFD1D00E95669 /* WebView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A24D7AD282BFD1D00E95669 /* WebView.swift */; };
+		0A24D7B0282BFD6400E95669 /* WebViewContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A24D7AF282BFD6300E95669 /* WebViewContainer.swift */; };
+		0A24D7B2282BFD8200E95669 /* WebViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A24D7B1282BFD8200E95669 /* WebViewModel.swift */; };
 		0ADCFBDB28257BDA00E1FA87 /* RecipeFinderApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ADCFBDA28257BDA00E1FA87 /* RecipeFinderApp.swift */; };
 		0ADCFBDF28257BE000E1FA87 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0ADCFBDE28257BE000E1FA87 /* Assets.xcassets */; };
 		0ADCFBE228257BE000E1FA87 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0ADCFBE128257BE000E1FA87 /* Preview Assets.xcassets */; };
@@ -19,6 +22,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0A24D7AD282BFD1D00E95669 /* WebView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebView.swift; sourceTree = "<group>"; };
+		0A24D7AF282BFD6300E95669 /* WebViewContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebViewContainer.swift; sourceTree = "<group>"; };
+		0A24D7B1282BFD8200E95669 /* WebViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebViewModel.swift; sourceTree = "<group>"; };
 		0ADCFBD728257BDA00E1FA87 /* RecipeFinder.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RecipeFinder.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0ADCFBDA28257BDA00E1FA87 /* RecipeFinderApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeFinderApp.swift; sourceTree = "<group>"; };
 		0ADCFBDE28257BE000E1FA87 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -84,6 +90,7 @@
 				0ADCFBED2825833E00E1FA87 /* Recipe.swift */,
 				0ADD888B282994A500DEFEAE /* VideoView.swift */,
 				0ADD888F2829EB9900DEFEAE /* SearchResult.swift */,
+				0A24D7B1282BFD8200E95669 /* WebViewModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -102,6 +109,8 @@
 			isa = PBXGroup;
 			children = (
 				0ADD888D28299F7500DEFEAE /* RemoteImageView.swift */,
+				0A24D7AF282BFD6300E95669 /* WebViewContainer.swift */,
+				0A24D7AD282BFD1D00E95669 /* WebView.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -177,8 +186,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				0ADCFBEE2825833E00E1FA87 /* Recipe.swift in Sources */,
+				0A24D7AE282BFD1D00E95669 /* WebView.swift in Sources */,
 				0ADD88902829EB9900DEFEAE /* SearchResult.swift in Sources */,
+				0A24D7B2282BFD8200E95669 /* WebViewModel.swift in Sources */,
 				0ADD888C282994A500DEFEAE /* VideoView.swift in Sources */,
+				0A24D7B0282BFD6400E95669 /* WebViewContainer.swift in Sources */,
 				0ADCFBEC28257D8400E1FA87 /* SearchView.swift in Sources */,
 				0ADCFBDB28257BDA00E1FA87 /* RecipeFinderApp.swift in Sources */,
 				0ADD888E28299F7500DEFEAE /* RemoteImageView.swift in Sources */,

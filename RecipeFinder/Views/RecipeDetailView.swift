@@ -22,9 +22,14 @@ struct RecipeDetailView: View {
                 Text(recipe.strMeal)
                     .font(.largeTitle)
                 
-                VideoView(strYouTube: "https://www.youtube.com/watch?v=1WDesu7bUDM")
+                // Navigation is restricted
+                WebView(address: recipe.strYouTube.replacingOccurrences(of: "watch", with: "watch_popup"),
+                        restrictToAddressBeginningWith: "")
+                .border(.black, width: 1.0)
+                // A height must be specified if additional content is placed below the web view.
+                .frame(height: 250)
                 
-                RemoteImageView(fromURL: URL(string: recipe.strMealThumb)!)
+        
                 
                 Link("View recipe", destination: URL(string: recipe.strSource)!)
                                     .padding(.top, 5)

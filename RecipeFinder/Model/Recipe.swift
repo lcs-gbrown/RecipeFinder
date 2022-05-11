@@ -7,9 +7,8 @@
 
 import Foundation
 
-struct Recipe: Identifiable {
+struct Recipe: Decodable {
     
-    let id = UUID()
     let idMeal: Int
     let strMeal: String
     let strInstructions: String

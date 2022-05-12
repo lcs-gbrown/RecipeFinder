@@ -13,7 +13,9 @@ struct SearchView: View {
     @State var searchText = ""
     
     // Keeps the list of recipes retrieved from JSON
-    @State var foundRecipes: [Recipe] = [] // empty array to start
+    @State var foundMeals: [Meal] = [] // empty array to start
+    
+    
     
     //MARK: Computed Properties
     
@@ -25,10 +27,10 @@ struct SearchView: View {
 
                 VStack {
 
-                    List(foundRecipes, id: \.idMeal) { currentRecipe in
+                    List(foundMeals, id: \.idMeal) { currentMeal in
                         
-                        NavigationLink(destination: RecipeDetailView(recipe: currentRecipe)) {
-                            ListItemView(recipe: currentRecipe)
+                        NavigationLink(destination: RecipeDetailView(recipeId: currentMeal.idMeal)) {
+                            ListItemView(meal: currentMeal)
                         }
                         
                     }
@@ -38,15 +40,15 @@ struct SearchView: View {
 
                         Task {
                             await fetchResults()
+                            
                         }
-
                     }
 
                     
                 }
                 .navigationTitle("Recipe Searcher")
 
-                // Show a prompt when there are no results yet
+
                 VStack {
                     Spacer()
                     
@@ -60,9 +62,8 @@ struct SearchView: View {
                 
             }
             
-            
         }
-        
+
     }
     //MARK: Functions
     func fetchResults() async {
@@ -70,8 +71,11 @@ struct SearchView: View {
         
         let input = searchText.lowercased().replacingOccurrences(of: " ", with: "+")
         
+        let urlToLoad = "https://www.themealdb.com/api/json/v1/1/filter.php?i=\(input)"
+        print(urlToLoad)
         
-        let url = URL(string: "www.themealdb.com/api/json/v1/1/lookup.php?i=\(input)")!
+        
+        let url = URL(string: urlToLoad)!
         
         
         var request = URLRequest(url: url)
@@ -92,8 +96,9 @@ struct SearchView: View {
             
             let decodedSearchResult = try JSONDecoder().decode(SearchResult.self, from: data)
             
+//            let recipe = decodedSearchResult.results.first!
             
-            foundRecipes = decodedSearchResult.results
+            foundMeals = decodedSearchResult.meals
             
         } catch {
             
@@ -104,6 +109,7 @@ struct SearchView: View {
         }
         
     }
+    
 }
 
 struct SearchView_Previews: PreviewProvider {

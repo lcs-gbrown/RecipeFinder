@@ -18,13 +18,6 @@ struct RecipeFinderApp: App {
                         Text("Search")
                         Image(systemName: "captions.bubble.fill")
                     }
-                
-                RecipeDetailView(recipe: testRecipe)
-                    .tabItem {
-                        Text("Recipe Details")
-                        Image(systemName: "captions.bubble.fill")
-                    }
-                
                
             }
         }

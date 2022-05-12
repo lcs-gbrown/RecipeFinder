@@ -10,14 +10,14 @@ import SwiftUI
 struct ListItemView: View {
     
     // MARK: Stored properties
-    var recipe: Recipe
+    var meal: Meal
     
     // MARK: Computed properties
     var body: some View {
 
         VStack(alignment: .leading) {
             
-            Text(recipe.strMeal)
+            Text(meal.strMeal)
             
             
         }
@@ -27,6 +27,6 @@ struct ListItemView: View {
 
 struct ListItemView_Previews: PreviewProvider {
     static var previews: some View {
-        ListItemView(recipe: testRecipe)
+        ListItemView(meal: testMeal)
     }
 }

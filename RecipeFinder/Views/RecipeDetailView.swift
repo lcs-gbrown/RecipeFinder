@@ -16,42 +16,58 @@ struct RecipeDetailView: View {
     
     @State var foundRecipe = testRecipe
     
+    @State var inFavourites: Bool
+    
+    @Binding var favourites: [Recipe]
+    
     
     // MARK: Computed properties
     var body: some View {
         
-        VStack(alignment: .leading)  {
-            
-            Text(foundRecipe.strMeal)
-                .font(.largeTitle)
-            
-            // Navigation is restricted
-            WebView(address: foundRecipe.strYoutube.replacingOccurrences(of: "watch", with: "watch_popup"),
-                    restrictToAddressBeginningWith: "")
-            .border(.black, width: 1.0)
-            // A height must be specified if additional content is placed below the web view.
-            .frame(height: 250)
-            
-    
-            
-            Link("View recipe", destination: URL(string: foundRecipe.strSource)!)
-                                .padding(.top, 5)
-            
-            Text(foundRecipe.strInstructions)
-                .font(.body)
-            
-            
-           
-            Link("View video", destination: URL(string: foundRecipe.strYoutube)!)
-                .padding(.top, 5)
-        }
-        .padding()
-        .task {
-            await fetchRecipe()
+        ScrollView {
+            VStack(alignment: .leading)  {
+                
+                Text(foundRecipe.strMeal)
+                    .font(.largeTitle)
+                
+                // Navigation is restricted
+                WebView(address: foundRecipe.strYoutube.replacingOccurrences(of: "watch", with: "watch_popup"),
+                        restrictToAddressBeginningWith: "")
+                    .border(.black, width: 1.0)
+                // A height must be specified if additional content is placed below the web view.
+                    .frame(height: 250)
+                
+                    
+                    Link("View recipe", destination: URL(string: foundRecipe.strSource)!)
+                        .padding(.top, 5)
+                    
+                    
+                    List(favourites, id: \.idMeal) { currentRecipe in
+                        
+                        FavouritesButtonView(recipe: currentRecipe,
+                                             inFavourites: $inFavourites,
+                                             favourites: $favourites)
+                        
+                        
+                        Link("View video", destination: URL(string: foundRecipe.strYoutube)!)
+                            .padding(.top, 5)
+    //                }
+                    
+                    Text(foundRecipe.strInstructions)
+                        .font(.body)
+                    
+                    
+                
+                .padding()
+                .task {
+                    await fetchRecipe()
+                }
+                
+            }
         }
         
     }
-    
+    }
     func fetchRecipe() async {
         
         
@@ -99,6 +115,6 @@ struct RecipeDetailView: View {
 
 struct RecipeDetailView_Previews: PreviewProvider {
     static var previews: some View {
-        RecipeDetailView(recipeId: "")
+        RecipeDetailView(recipeId: "", inFavourites: false, favourites: .constant([]))
     }
 }

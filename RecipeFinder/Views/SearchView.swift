@@ -15,6 +15,7 @@ struct SearchView: View {
     // Keeps the list of recipes retrieved from JSON
     @State var foundMeals: [Meal] = [] // empty array to start
     
+    @Binding var favourites: [Recipe]    
     
     
     //MARK: Computed Properties
@@ -29,7 +30,7 @@ struct SearchView: View {
 
                     List(foundMeals, id: \.idMeal) { currentMeal in
                         
-                        NavigationLink(destination: RecipeDetailView(recipeId: currentMeal.idMeal)) {
+                        NavigationLink(destination: RecipeDetailView(recipeId: currentMeal.idMeal, inFavourites: false, favourites: $favourites)) {
                             ListItemView(meal: currentMeal)
                         }
                         
@@ -115,6 +116,6 @@ struct SearchView: View {
 
 struct SearchView_Previews: PreviewProvider {
     static var previews: some View {
-        SearchView()
+        SearchView(favourites: .constant([]))
     }
 }

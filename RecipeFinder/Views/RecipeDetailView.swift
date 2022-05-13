@@ -20,46 +20,47 @@ struct RecipeDetailView: View {
     // MARK: Computed properties
     var body: some View {
         
-        NavigationView {
+        VStack(alignment: .leading)  {
             
-            VStack(alignment: .leading)  {
-                
-                Text(foundRecipe.strMeal)
-                    .font(.largeTitle)
-                
-                // Navigation is restricted
-                WebView(address: foundRecipe.strYouTube.replacingOccurrences(of: "watch", with: "watch_popup"),
-                        restrictToAddressBeginningWith: "")
-                .border(.black, width: 1.0)
-                // A height must be specified if additional content is placed below the web view.
-                .frame(height: 250)
-                
-        
-                
-                Link("View recipe", destination: URL(string: foundRecipe.strSource)!)
-                                    .padding(.top, 5)
-                
-                Text(foundRecipe.strInstructions)
-                    .font(.body)
-                
-                
-               
-                Link("View video", destination: URL(string: foundRecipe.strYouTube)!)
-                    .padding(.top, 5)
-            }
+            Text(foundRecipe.strMeal)
+                .font(.largeTitle)
             
-            .padding()
+            // Navigation is restricted
+            WebView(address: foundRecipe.strYoutube.replacingOccurrences(of: "watch", with: "watch_popup"),
+                    restrictToAddressBeginningWith: "")
+            .border(.black, width: 1.0)
+            // A height must be specified if additional content is placed below the web view.
+            .frame(height: 250)
+            
+    
+            
+            Link("View recipe", destination: URL(string: foundRecipe.strSource)!)
+                                .padding(.top, 5)
+            
+            Text(foundRecipe.strInstructions)
+                .font(.body)
+            
+            
+           
+            Link("View video", destination: URL(string: foundRecipe.strYoutube)!)
+                .padding(.top, 5)
         }
-      
+        .padding()
+        .task {
+            await fetchRecipe()
+        }
+        
     }
     
     func fetchRecipe() async {
         
         
-        let input = searchText.lowercased().replacingOccurrences(of: " ", with: "+")
         
+        let urlToLoad = "https://www.themealdb.com/api/json/v1/1/lookup.php?i=\(recipeId)"
+        print(urlToLoad)
         
-        let url = URL(string: "https://www.themealdb.com/api/json/v1/1/lookup.php?i=\(recipeId)")!
+        let url = URL(string: urlToLoad)!
+        
         
         
         var request = URLRequest(url: url)
@@ -81,6 +82,8 @@ struct RecipeDetailView: View {
             let decodedRecipeIngredient = try JSONDecoder().decode(RecipeIngredient.self, from: data)
             
             foundRecipe = decodedRecipeIngredient.meals.first!
+            
+            print(dump(foundRecipe))
             
         } catch {
             

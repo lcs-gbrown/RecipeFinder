@@ -46,7 +46,7 @@ struct SearchView: View {
 
                     
                 }
-                .navigationTitle("Recipe Searcher")
+                
 
 
                 VStack {
@@ -61,6 +61,7 @@ struct SearchView: View {
                 .opacity(searchText.isEmpty ? 1.0 : 0.0)
                 
             }
+            .navigationTitle("Recipe Searcher")
             
         }
 

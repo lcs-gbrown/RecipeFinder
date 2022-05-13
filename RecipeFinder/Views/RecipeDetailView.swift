@@ -37,36 +37,36 @@ struct RecipeDetailView: View {
                 // A height must be specified if additional content is placed below the web view.
                     .frame(height: 250)
                 
+                
+                Link("View recipe", destination: URL(string: foundRecipe.strSource)!)
+                    .padding(.top, 5)
                     
-                    Link("View recipe", destination: URL(string: foundRecipe.strSource)!)
+                    Link("View video", destination: URL(string: foundRecipe.strYoutube)!)
                         .padding(.top, 5)
-                    
-                    
-                    List(favourites, id: \.idMeal) { currentRecipe in
-                        
-                        FavouritesButtonView(recipe: currentRecipe,
-                                             inFavourites: $inFavourites,
-                                             favourites: $favourites)
-                        
-                        
-                        Link("View video", destination: URL(string: foundRecipe.strYoutube)!)
-                            .padding(.top, 5)
-    //                }
                     
                     Text(foundRecipe.strInstructions)
                         .font(.body)
+                
+                List(favourites, id: \.idMeal) { currentRecipe in
+                    
+                    FavouritesButtonView(recipe: currentRecipe,
+                                         inFavourites: $inFavourites,
+                                         favourites: $favourites)
                     
                     
+                }
                 
                 .padding()
                 .task {
                     await fetchRecipe()
+                    
+                    
                 }
-                
             }
         }
+
         
-    }
+        
     }
     func fetchRecipe() async {
         
